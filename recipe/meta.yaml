@@ -1,5 +1,5 @@
 {% set name = "stamina" %}
-{% set version = "23.3.0" %}
+{% set version = "24.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stamina-{{ version }}.tar.gz
-  sha256: 48f1b3c39ea7e03775fdc0653f9f6ad183b401c84e0eeada12ff18accc712a61
+  sha256: de14695610e4ea8da0624fc368607e95d923b25bfe45f4eaa10e226360bc9e02
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
