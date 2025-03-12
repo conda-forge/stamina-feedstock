@@ -22,11 +22,10 @@ requirements:
     - hatch-fancy-pypi-readme >=22.8.0
     - pip
   run:
-    - typing_extensions
     - python >={{ python_min }}
     - tenacity
     # including this for all python to stay noarch: python
-    - typing-extensions
+    - typing_extensions
 
 test:
   imports:
