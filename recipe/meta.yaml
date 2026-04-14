@@ -24,8 +24,6 @@ requirements:
   run:
     - python >={{ python_min }}
     - tenacity
-    # including this for all python to stay noarch: python
-    - typing_extensions
 
 test:
   imports:
