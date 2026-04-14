@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: stamina
+  version: "26.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/stamina-${{ version }}.tar.gz
+  sha256: 0214d05fdf5102c518194a4aac7520ce53cf660550ae3b940701aad88cf50c17
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - hatch-vcs
+    - hatch-fancy-pypi-readme >=22.8.0
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - tenacity
+
+tests:
+  - python:
+      imports:
+        - stamina
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Production-grade retries made easy.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/hynek/stamina
+  repository: https://github.com/hynek/stamina
+  documentation: https://stamina.hynek.me/en/stable/
+
+extra:
+  recipe-maintainers:
+    - xylar
