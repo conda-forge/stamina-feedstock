@@ -1,5 +1,5 @@
 {% set name = "stamina" %}
-{% set version = "25.2.0" %}
+{% set version = "26.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stamina-{{ version }}.tar.gz
-  sha256: fdff938789e8a0c4c496e1ee8a08ee3c7c3351239f235b53e60d4f5964d07e19
+  sha256: 0214d05fdf5102c518194a4aac7520ce53cf660550ae3b940701aad88cf50c17
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -24,8 +24,6 @@ requirements:
   run:
     - python >={{ python_min }}
     - tenacity
-    # including this for all python to stay noarch: python
-    - typing_extensions
 
 test:
   imports:
