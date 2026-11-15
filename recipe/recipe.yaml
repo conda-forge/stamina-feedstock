@@ -20,10 +20,10 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
+    - pip
     - hatchling
     - hatch-vcs
     - hatch-fancy-pypi-readme >=22.8.0
-    - pip
   run:
     - python >=${{ python_min }}
     - tenacity >=8.3.0
@@ -32,7 +32,9 @@ tests:
       imports:
         - stamina
       pip_check: true
-      python_version: ${{ python_min }}
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
   summary: Production-grade retries made easy.
